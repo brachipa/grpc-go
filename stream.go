@@ -21,6 +21,7 @@ package grpc
 import (
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"math"
 	"strconv"
@@ -1384,6 +1385,7 @@ func (as *addrConnStream) SendMsg(m interface{}) (err error) {
 			// will call it with the stream's status independently.
 			return nil
 		}
+		fmt.Printf("failed to write %s", err)
 		return io.EOF
 	}
 
